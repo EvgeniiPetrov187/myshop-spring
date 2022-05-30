@@ -6,6 +6,10 @@ public class CategoryDto {
 
     private String title;
 
+    public CategoryDto(Long id) {
+        this.id = id;
+    }
+
     public CategoryDto(Long id, String title) {
         this.id = id;
         this.title = title;

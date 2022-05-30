@@ -30,7 +30,7 @@ public class ProductController {
     public String findAll(Model model) {
         model.addAttribute("products", productService.findAll());
         model.addAttribute("categories", categoryService.findAll());
-        return "list";
+        return "products";
     }
 
     @GetMapping("/new")
@@ -42,7 +42,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public String editProduct(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("productDto", productService.findById(id));
+        model.addAttribute("product", productService.findById(id));
         model.addAttribute("categories", categoryService.findAll());
         return "add";
     }
@@ -54,13 +54,13 @@ public class ProductController {
             return "add";
         }
         productService.saveOrUpdate(productDto);
-        return "redirect:/list";
+        return "redirect:/products";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id, Model model) {
         model.addAttribute("product", productService.findById(id));
         productService.deleteById(id);
-        return "redirect:/list";
+        return "redirect:/products";
     }
 }

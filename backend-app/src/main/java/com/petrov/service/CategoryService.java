@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static com.petrov.service.Utils.mapCategory;
 import static com.petrov.service.Utils.mapCategoryDto;
 
 @Service
@@ -39,5 +40,9 @@ public class CategoryService implements Serializable {
             }
         }
         return null;
+    }
+
+    public void saveOrUpdate (CategoryDto categoryDto) {
+        categoryRepository.save(mapCategory(categoryDto));
     }
 }

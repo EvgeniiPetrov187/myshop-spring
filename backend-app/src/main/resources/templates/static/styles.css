@@ -1,0 +1,45 @@
+.main-container {
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-image: url("../../pictures/960m.jpg");
+    background-size: auto;
+    text-align: center;
+    min-height: 200px;
+    min-width: 500px;
+}
+.pop-up-window {
+    height: 300px;
+    width: 300px;
+    display: none;
+    background-color: blueviolet;
+    z-index: 10;
+}
+.header {
+    max-height: 500px;
+    margin: auto;
+}
+.navigation {
+    display: flex;
+    margin: auto;
+    alignment: center;
+    max-width: 50%;
+    max-height: 60px;
+    justify-content: space-around;
+    background-color: aqua;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.product-table {
+    alignment: center;
+    background-color: azure;
+    border: black;
+    margin: auto;
+    z-index: 100;
+}
+
+.footer {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
