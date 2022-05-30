@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" href="static/styles.css" type="text/css"/>
+</head>
+<body>
+<div class="header">
+    <div class="navigation">
+        <button th:href="@{/products/new}">Add Product</button>
+        <button>My Orders</button>
+    </div>
+</div>
+<div class="main-container">
+    <div class="table-container">
+        <table class="product-table">
+            <tr>
+                <td>Id</td>
+                <td>Код</td>
+                <td>Название</td>
+                <td>Цена</td>
+                <td>Ссылка</td>
+                <td>Категория</td>
+            </tr>
+            <tr th:each="product : ${products}">
+                <th scope="row" th:text="${product.id}"></th>
+                <td th:text="${product.code}"></td>
+                <td th:text="${product.title}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.url}"></td>
+                <td th:text="${product.categoryDto.title}"></td>
+                <td>
+                    <button th:href="@{/products/{id}(id = ${product.id})}">Редактировать</button>
+                    <button th:href="@{/products/delete/{id}(id = ${product.id})}">Удалить</button>
+                </td>
+        </table>
+        </tr>
+    </div>
+</div>
+<div class="footer">
+    <h2>Подвал</h2>
+</div>
+</body>
+</html>
