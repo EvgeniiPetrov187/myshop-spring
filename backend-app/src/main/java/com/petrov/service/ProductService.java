@@ -5,6 +5,7 @@ import com.petrov.entity.Product;
 import com.petrov.repository.CategoryRepository;
 import com.petrov.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,5 +47,9 @@ public class ProductService implements Serializable {
     @Transactional
     public void deleteById(Long id) {
         productRepository.deleteById(id);
+    }
+
+    public ProductDto findByTitle(String title){
+        return mapProduct(productRepository.findByTitle(title));
     }
 }
