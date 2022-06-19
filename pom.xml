@@ -28,6 +28,8 @@
         <module>backend-app</module>
         <module>front</module>
         <module>soap</module>
+        <module>webflow</module>
+        <module>integration</module>
     </modules>
 
 </project>
