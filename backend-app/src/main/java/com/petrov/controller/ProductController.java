@@ -26,7 +26,7 @@ public class ProductController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public String findAll(Model model) {
         model.addAttribute("products", productService.findAll());
         model.addAttribute("categories", categoryService.findAll());
@@ -42,7 +42,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public String editProduct(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("product", productService.findById(id));
+        model.addAttribute("productDto", productService.findById(id));
         model.addAttribute("categories", categoryService.findAll());
         return "add";
     }
@@ -54,13 +54,13 @@ public class ProductController {
             return "add";
         }
         productService.saveOrUpdate(productDto);
-        return "redirect:/products";
+        return "redirect:/products/list";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("product", productService.findById(id));
+        model.addAttribute("productDto", productService.findById(id));
         productService.deleteById(id);
-        return "redirect:/products";
+        return "redirect:/products/list";
     }
 }
