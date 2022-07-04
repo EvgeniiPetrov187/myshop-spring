@@ -27,7 +27,7 @@ public class ProductEndpoint implements Serializable {
     public GetProductSoapResponse getProductSoap(@RequestPayload GetProductSoapRequest request) {
         GetProductSoapResponse response = new GetProductSoapResponse();
         ProductSoap product = productService.findByTitle(request.getTitle());
-        response.setProduct(product);
+        response.setProductSoap(product);
 
         return response;
     }

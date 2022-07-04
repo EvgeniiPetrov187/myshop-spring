@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
-    <link rel="stylesheet" href="static/styles.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css" th:href="@{/styles.css}"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="header">
     <div class="navigation">
-        <button th:href="@{/products/new}">Add Product</button>
+        <button><a th:href="@{/products/new}">Add Product</a></button>
         <button>My Orders</button>
     </div>
 </div>
@@ -32,8 +33,10 @@
                 <td th:text="${product.url}"></td>
                 <td th:text="${product.categoryDto.title}"></td>
                 <td>
-                    <button th:href="@{/products/{id}(id = ${product.id})}">Редактировать</button>
-                    <button th:href="@{/products/delete/{id}(id = ${product.id})}">Удалить</button>
+                    <button><a th:href="@{/products/{id}(id = ${product.id})}">Редактировать</a></button>
+                    <form th:method="delete" th:action="@{/products/{id}(id = ${product.id})}">
+                        <button type="submit">Удалить</button>
+                    </form>
                 </td>
         </table>
         </tr>

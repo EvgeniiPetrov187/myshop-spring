@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="static/styles.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css" th:href="@{/styles.css}"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="header">
     <div class="navigation">
-        <button th:href="@{/products/all}">All Products</button>
+        <button><a th:href="@{/products/list}">All Products</a></button>
         <button>My Orders</button>
     </div>
 </div>
@@ -29,14 +30,14 @@
         </div>
         <div>
             <label>Цена</label>
-            <input type="number" class="form-control" id="price" th:field="*{price}"
-                   placeholder="Enter product cost">
+            <input type="number" id="price" th:field="*{price}"
+                   placeholder="Enter product price">
             <!--            <p class="text-danger" th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}"></p>-->
         </div>
         <div>
             <label>Ссылка</label>
-            <input type="text" class="form-control" id="url" th:field="*{url}"
-                   placeholder="Enter product cost">
+            <input type="text" id="url" th:field="*{url}"
+                   placeholder="Enter product url">
             <!--            <p class="text-danger" th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}"></p>-->
         </div>
         <div>
